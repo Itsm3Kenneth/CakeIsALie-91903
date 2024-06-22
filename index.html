@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KAWA-STATS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header-bar">
+      <section class="logo-name">
+        <img
+          src="Kawasaki-Logo.png"
+          alt="Kawasaki Logo"
+          class="logo"
+          onclick="returnHome()"
+        />
+        <h1 class="namer" onclick="returnHome()">KAWA-STATS</h1>
+      </section>
+      <section class="link-container">
+        <a href="index.html" class="links">HOME</a>
+        <a href="contanct.html" class="links">CONTACT</a>
+        <a href="support.html" class="links">SUPPORT</a>
+      </section>
+    </header>
+    <nav class="filter-bar">
+      <button id="brand" class="filter">KAWASAI</button>
+      <select name="" id="model" class="filter">
+        <option value="" selected>MODEL</option>
+        <option value="Ninja">Ninja Series</option>
+        <option value="ZX">ZX Series</option>
+        <option value="Vulcan">Vulcan Series</option>
+        <option value="KX">KX Series</option>
+      </select>
+      <input type="text" id="year-input" class="filter" placeholder="YEAR" />
+      <button id="home" class="filter">HOME</button>
+      <input type="text" id="search-bar" class="filter" placeholder="SEARCH" />
+      <button id="search-btn" class="filter"><icon>🔎︎</icon></button>
+    </nav>
+    <main class="content-container">
+      <button class="view-model" id="invis">VIEW MODEL</button>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<!--
+<section class="loading-card">
+  <div>
+    <img
+      src="http://api-motorcycle.makingdatameaningful.com/files/bmw/2020/s-1000-xr/bmw_2020_s-1000-xr.jpeg"
+      alt=""
+    />
+    <p class="loading-name">MOTORCYCLE NAME</p>
+  </div>
+  <button class="loading-btn"></button>
+</section>
+-->

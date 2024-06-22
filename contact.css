@@ -1,0 +1,17 @@
+main > h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10vw;
+    color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+main > p{
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vw;
+    color: green;
+}

@@ -1,0 +1,227 @@
+:root {
+  --greenish: rgb(24, 132, 42);
+}
+
+@font-face {
+  font-family: Charkra;
+  src: url(ChakraPetch-Regular.ttf);
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.header-bar {
+  user-select: none;
+  font-family: Charkra;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3vh 1.5vw;
+  .logo-name {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .logo {
+      height: 7vw;
+      cursor: pointer;
+    }
+    .namer {
+      transition: color 0.2s;
+      font-size: 2vw;
+      cursor: pointer;
+    }
+
+    .namer:hover {
+      color: var(--greenish);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+
+  }
+  .link-container {
+    display: flex;
+    justify-content: space-between;
+    .links {
+      transition: color 0.2s;
+      align-items: center;
+      color: black;
+      text-decoration: none;
+      font-size: 2vw;
+      margin: 1vw;
+    }
+    .links:hover {
+      color: var(--greenish);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+  }
+}
+
+.filter-bar {
+  user-select: none;
+  font-family: Charkra;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 4vh 0;
+  .filter,
+  .filter::placeholder {
+    color: whitesmoke;
+    background-color: var(--greenish);
+    border: 0;
+    padding: 2vh 4vw 2vh 2vw;
+    border-radius: 0.7rem;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  #year-input::placeholder,
+  #brand::placeholder,
+  #search-bar::placeholder {
+    padding-left: 0;
+  }
+
+  #home,
+  #search-btn {
+    padding: 1vh 1vw;
+    cursor: pointer;
+  }
+}
+
+.content-container {
+  font-family: Charkra;
+  height: 100%;
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  width: 100vw;
+  #invis{
+    opacity: 0;
+    position: absolute;
+    transform: translate(-500000%, 0%);
+  }
+
+  .card {
+    margin: 2rem auto;
+    align-items: center;
+    .holder {
+      background-color: grey;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+    }
+    div > img {
+      height: 40vh;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .description {
+      color: whitesmoke;
+      padding: 0;
+      .model-name {
+        margin: 0;
+        font-size: 140%;
+      }
+      .short,
+      .engine {
+        margin: 0;
+      }
+    }
+
+    .view-model {
+      display: flex;
+      cursor: pointer;
+      background-color: var(--greenish);
+      border: var(--greenish);
+      color: whitesmoke;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      padding: 2vh 4vw;
+      margin: 10% auto;
+    }
+  }
+
+  .loading-card {
+    align-items: center;
+    div {
+      background-color: grey;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+    }
+    img {
+      height: 40vh;
+      max-width: 100%;
+      max-height: 100%;
+      opacity: 0;
+    }
+
+    .loading-name {
+      opacity: 0;
+    }
+
+    .loading-btn {
+      display: flex;
+      cursor: pointer;
+      background-color: black;
+      color: whitesmoke;
+      border-radius: 0.5rem;
+      padding: 0.7vh 1vw;
+      margin: 3vh auto;
+    }
+  }
+}
+
+
+.error{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 1000px) {
+  .filter
+  .filter-bar .filter::placeholder {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100vw;
+    padding: 0vw;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    background-color: blueviolet;
+  }
+  .filter,
+  .filter-bar .filter::placeholder {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    padding: 0vw;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  #model, #year-input, #home, #search-bar{
+    width: 100%;
+  }
+
+  #search-btn{
+    width: auto;
+  }
+
+  #year-input::placeholder,
+  #brand::placeholder,
+  #search-bar::placeholder {
+    padding: auto;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+}
