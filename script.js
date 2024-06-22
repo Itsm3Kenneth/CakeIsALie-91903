@@ -14,6 +14,7 @@ let searchValue = [];
 let url = "";
 
 const namer = document.querySelector(".namer");
+const NOR = document.querySelector(".result-number")
 
 async function requestApi(url) {
   const response = await fetch(url, apiWorks);
@@ -59,6 +60,7 @@ function filterBarResult() {
 function showDataCards(result) {
   content.innerHTML = `<button class="view-model" id="invis">VIEW MODEL</button>`;
   let code = "";
+  NOR.textContent = `Results: ${result.length}`
   for (const entry of Object.entries(result)) {
     const [key, value] = entry;
     console.log("Keys: ", key, "Value: ", value.model);
