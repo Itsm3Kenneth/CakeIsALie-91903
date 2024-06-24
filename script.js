@@ -14,21 +14,20 @@ let searchValue = [];
 let url = "";
 
 const namer = document.querySelector(".namer");
-const NOR = document.querySelector(".result-number")
+const resultNumber = document.querySelector(".result-number");
 
 async function requestApi(url) {
   const response = await fetch(url, apiWorks);
   const data = await response.json();
   console.log(data);
-  if (data.length > 0){
-        content.innerHTML = `<button class="view-model" id="invis">VIEW MODEL</button>`
+  if (data.length > 0) {
     showDataCards(data);
-  }else{
+  } else {
     content.innerHTML = `    
     <main class="error">
       <h1>Unexpected Value</h1>
       <p>Please try search again</p>
-    </main>`
+    </main>`;
   }
 }
 
@@ -58,12 +57,18 @@ function filterBarResult() {
 }
 
 function showDataCards(result) {
-  content.innerHTML = `<button class="view-model" id="invis">VIEW MODEL</button>`;
+  content.innerHTML = ``;
   let code = "";
-  NOR.textContent = `Results: ${result.length}`
+  const viewModelButton = Object.assign(document.createElement("button"), {
+    id: "invis",
+    className: "view-model",
+    textContent: "VIEW MODEL",
+  });
+  content.append(viewModelButton);
+  resultNumber.textContent = `Results: ${result.length}`;
   for (const entry of Object.entries(result)) {
-    const [key, value] = entry;
-    console.log("Keys: ", key, "Value: ", value.model);
+    const [index, value] = entry;
+    console.log("Keys: ", index, "Value: ", value.model);
     let CC = [];
     CC = value.displacement.split(" ");
     code = `<section class="card">
@@ -78,7 +83,7 @@ function showDataCards(result) {
             <p class="engine">Engine: ${value.engine}</p>
           </div>
         </div>
-        <button class="view-model" onClick="viewModel()">VIEW MODEL</button>
+        <button class="view-model" onClick="viewModel(${index})">VIEW MODEL</button>
       </section>`;
     content.innerHTML += code;
   }
@@ -92,11 +97,11 @@ searchBar.addEventListener("keydown", (e) => {
 searchBtn.addEventListener("click", () => {
   filterBarResult();
 });
-function returnHome(){
+function returnHome() {
   console.log("clicked");
-  window.open("index.html", "_self")
+  window.open("index.html", "_self");
 }
 
-function viewModel() {
-  console.log("Button Clicked");
+function viewModel(index) {
+  console.log("Button Clicked " + index);
 }
