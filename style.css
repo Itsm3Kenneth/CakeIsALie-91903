@@ -91,6 +91,14 @@ body {
   }
 }
 
+.result-number{
+  font-family: Charkra;
+  display: flex;
+  justify-content: left;
+  padding: 0 3vw;
+  font-size: 2rem;
+}
+
 .content-container {
   font-family: Charkra;
   height: 100%;
@@ -111,11 +119,13 @@ body {
       background-color: grey;
       padding: 1rem 1.5rem;
       border-radius: 0.5rem;
+      cursor: pointer;
     }
     div > img {
-      height: 40vh;
+      height: auto;
+      width: auto;
       max-width: 100%;
-      max-height: 100%;
+      max-height: 40vh;
     }
 
     .description {
@@ -182,6 +192,20 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.result-number{
+  margin-top: 0;
+}
+
+.screen{
+  position: absolute;
+  height: 100dvh;
+  width: 100dvw;
+  background-color: whitesmoke;
+  opacity: 50%;
+  
+
+}
+
 @media only screen and (max-width: 1000px) {
   .filter
   .filter-bar .filter::placeholder {
@@ -190,22 +214,43 @@ body {
     width: 100vw;
     padding: 0vw;
     font-size: 1rem;
-    margin: 0.5rem 0;
+    margin: 0.5rem 0.5rem;
+  }
+
+  #brand, #model, #year-input, #home, #search-bar, #search-btn{
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  #search-btn{
+    width: 100%
+  }
+
+  
+  #year-input::placeholder,
+  #brand::placeholder,
+  #search-bar::placeholder {
+    padding: auto;
+  }
+
+  .filter-bar{
+    padding-bottom: 0;
+  }
+
+  .result-number{
+    margin-top: 0;
+    font-size: 1.5rem;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  body {
-    background-color: blueviolet;
-  }
   .filter,
   .filter-bar .filter::placeholder {
     display: flex;
     flex-wrap: wrap;
     width: 100vw;
-    padding: 0vw;
     font-size: 1rem;
-    margin: 0.5rem 0;
+    margin: 0.5rem 0.5rem;
   }
 
   #model, #year-input, #home, #search-bar{
@@ -213,7 +258,7 @@ body {
   }
 
   #search-btn{
-    width: auto;
+    width: 100%
   }
 
   #year-input::placeholder,
@@ -221,7 +266,13 @@ body {
   #search-bar::placeholder {
     padding: auto;
   }
-}
 
-@media only screen and (max-width: 640px) {
+  .filter-bar{
+    padding-bottom: 0;
+  }
+
+  .result-number{
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
 }

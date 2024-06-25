@@ -13,23 +13,12 @@ const content = document.querySelector(".content-container");
 let searchValue = [];
 let url = "";
 
-const namer = document.querySelector(".namer");
+let motorcycleResult = [];
 
-async function requestApi(url) {
-  const response = await fetch(url, apiWorks);
-  const data = await response.json();
-  console.log(data);
-  if (data.length > 0){
-        content.innerHTML = `<button class="view-model" id="invis">VIEW MODEL</button>`
-    showDataCards(data);
-  }else{
-    content.innerHTML = `    
-    <main class="error">
-      <h1>Unexpected Value</h1>
-      <p>Please try search again</p>
-    </main>`
-  }
-}
+const namer = document.querySelector(".namer");
+const resultNumber = document.querySelector(".result-number");
+
+  
 
 function filterBarResult() {
   if (model.value === "" && year.value === "" && searchBar.value === "") {
@@ -57,15 +46,22 @@ function filterBarResult() {
 }
 
 function showDataCards(result) {
-  content.innerHTML = `<button class="view-model" id="invis">VIEW MODEL</button>`;
+  content.innerHTML = ``;
   let code = "";
+  const viewModelButton = Object.assign(document.createElement("button"), {
+    id: "invis",
+    className: "view-model",
+    textContent: "VIEW MODEL",
+  });
+  content.append(viewModelButton);
+  resultNumber.textContent = `Results: ${result.length}`;
   for (const entry of Object.entries(result)) {
-    const [key, value] = entry;
-    console.log("Keys: ", key, "Value: ", value.model);
+    const [index, value] = entry;
+    console.log("Keys: ", index, "Value: ", value.model);
     let CC = [];
     CC = value.displacement.split(" ");
     code = `<section class="card">
-        <div class="holder">
+        <div class="holder" onClick="viewModel(${index})">
           <img
             src="https://www.seastarsuperbikes.co.uk/wp-content/uploads/2023/01/23MY_Ninja-ZX-10R_GN1_STU-1-1500x1000.png"
             alt=""
@@ -76,7 +72,7 @@ function showDataCards(result) {
             <p class="engine">Engine: ${value.engine}</p>
           </div>
         </div>
-        <button class="view-model" onClick="viewModel(${result})">VIEW MODEL</button>
+        <button class="view-model" onClick="viewModel(${index})">VIEW MODEL</button>
       </section>`;
     content.innerHTML += code;
   }
@@ -90,11 +86,13 @@ searchBar.addEventListener("keydown", (e) => {
 searchBtn.addEventListener("click", () => {
   filterBarResult();
 });
-function returnHome(){
+function returnHome() {
   console.log("clicked");
-  window.open("index.html", "_self")
+  window.open("index.html", "_self");
 }
 
-function viewModel(itemData) {
-  console.log(itemData)
+function viewModel(index) {
+  console.log(motorcycleResult[index].model);
+ let code = `<div class="screen"><div class="screen-holder">rah </div></div>`
+ document.body.innerHTML += code
 }
