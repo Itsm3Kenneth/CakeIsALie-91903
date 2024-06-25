@@ -76,7 +76,7 @@ function showDataCards(result) {
             <p class="engine">Engine: ${value.engine}</p>
           </div>
         </div>
-        <button class="view-model" onClick="viewModel()">VIEW MODEL</button>
+        <button class="view-model" onClick="viewModel(${result})">VIEW MODEL</button>
       </section>`;
     content.innerHTML += code;
   }
@@ -95,6 +95,6 @@ function returnHome(){
   window.open("index.html", "_self")
 }
 
-function viewModel() {
-  console.log("Button Clicked");
+function viewModel(itemData) {
+  console.log(itemData)
 }
