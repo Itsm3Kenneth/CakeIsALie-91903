@@ -39,7 +39,6 @@ body {
       text-decoration: underline;
       transition: color 0.2s;
     }
-
   }
   .link-container {
     display: flex;
@@ -91,7 +90,7 @@ body {
   }
 }
 
-.result-number{
+.result-number {
   font-family: Charkra;
   display: flex;
   justify-content: left;
@@ -106,7 +105,7 @@ body {
   justify-content: left;
   flex-wrap: wrap;
   width: 100vw;
-  #invis{
+  #invis {
     opacity: 0;
     position: absolute;
     transform: translate(-500000%, 0%);
@@ -184,66 +183,82 @@ body {
   }
 }
 
-
-.error{
+.error {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.result-number{
+.result-number {
   margin-top: 0;
 }
 
-.screen{
+.screen {
   position: absolute;
   height: 100dvh;
   width: 100dvw;
   background-color: whitesmoke;
   opacity: 50%;
-  
-
 }
 
 @media only screen and (max-width: 1000px) {
-  .filter
-  .filter-bar .filter::placeholder {
+  .filter, .filter-bar, .filter::placeholder {
     display: flex;
-    flex-wrap: nowrap;
-    width: 100vw;
-    padding: 0vw;
+    flex-wrap: wrap;
+    width: 99vw;
     font-size: 1rem;
     margin: 0.5rem 0.5rem;
   }
 
-  #brand, #model, #year-input, #home, #search-bar, #search-btn{
+  .filter{
+    margin: 0.5rem 0.5rem;
+  }
+
+  #brand,
+  #model,
+  #year-input,
+  #home,
+  #search-bar,
+  #search-btn {
     width: 100%;
     margin-top: 0.5rem;
   }
 
-  #search-btn{
-    width: 100%
+  #search-btn {
+    width: 100%;
   }
 
-  
   #year-input::placeholder,
   #brand::placeholder,
   #search-bar::placeholder {
     padding: auto;
   }
 
-  .filter-bar{
+  .filter-bar {
     padding-bottom: 0;
   }
 
-  .result-number{
+  .result-number {
     margin-top: 0;
     font-size: 1.5rem;
   }
 }
 
 @media only screen and (max-width: 500px) {
+  .header-bar {
+    .logo-name {
+      .namer {
+        font-size: 1rem;
+      }
+    }
+    .link-container{
+      .links{
+        font-size: 1.2rem;
+      }
+    }
+  }
+
   .filter,
   .filter-bar .filter::placeholder {
     display: flex;
@@ -253,12 +268,15 @@ body {
     margin: 0.5rem 0.5rem;
   }
 
-  #model, #year-input, #home, #search-bar{
+  #model,
+  #year-input,
+  #home,
+  #search-bar {
     width: 100%;
   }
 
-  #search-btn{
-    width: 100%
+  #search-btn {
+    width: 100%;
   }
 
   #year-input::placeholder,
@@ -267,11 +285,11 @@ body {
     padding: auto;
   }
 
-  .filter-bar{
+  .filter-bar {
     padding-bottom: 0;
   }
 
-  .result-number{
+  .result-number {
     margin-top: 0;
     font-size: 1.5rem;
   }
