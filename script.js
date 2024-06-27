@@ -18,7 +18,22 @@ let motorcycleResult = [];
 const namer = document.querySelector(".namer");
 const resultNumber = document.querySelector(".result-number");
 
-  
+async function requestApi(url) {
+  motorcycleResult = [];
+  const response = await fetch(url, apiWorks);
+  const data = await response.json();
+  motorcycleResult = data;
+  console.log(data);
+  if (data.length > 0) {
+    showDataCards(data);
+  } else {
+    content.innerHTML = `    
+    <main class="error">
+      <h1>Unexpected Value</h1>
+      <p>Please try search again</p>
+    </main>`;
+  }
+}
 
 function filterBarResult() {
   if (model.value === "" && year.value === "" && searchBar.value === "") {
@@ -93,6 +108,6 @@ function returnHome() {
 
 function viewModel(index) {
   console.log(motorcycleResult[index].model);
- let code = `<div class="screen"><div class="screen-holder">rah </div></div>`
- document.body.innerHTML += code
+  let code = `<div class="screen"><div class="screen-holder">rah </div></div>`;
+  document.body.innerHTML += code;
 }
